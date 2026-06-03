@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Ashish Rawat | AI/ML Engineer — Chandigarh University</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Space Grotesk', sans-serif;
+            background-color: #05050C;
+            color: #edf2ff;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+         :root {
+            --bg-deep: #02020a;
+            --card-glass: rgba(20, 25, 45, 0.65);
+            --border-glow: rgba(0, 255, 255, 0.25);
+            --accent-primary: #3b82f6;
+            --accent-secondary: #8b5cf6;
+            --accent-neon: #00f0ff;
+            --text-light: #f1f5f9;
+            --text-dim: #94a3b8;
+        }
+        
+        body {
+            background: radial-gradient(ellipse at 20% 30%, #0f1123, #010104);
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.045'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.3;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+            backdrop-filter: blur(12px);
+            background: rgba(5, 5, 15, 0.55);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', monospace;
+            background: linear-gradient(125deg, #ffffff, #3b82f6, #a855f7);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 6s infinite linear;
+            letter-spacing: -0.3px;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #cbd5f0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #a855f7);
+            transition: width 0.25s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(105deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 0.75rem 1.6rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(59, 130, 246, 0.8);
+            color: #3b82f6;
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-4px);
+            border-color: #00ccff;
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.05);
+            box-shadow: 0 15px 30px -8px #3b82f6;
+        }
+        
+        .hero {
+            padding: 3rem 0 4rem;
+        }
+        
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2.5rem;
+            justify-content: space-between;
+        }
+        
+        .hero-content {
+            flex: 1.3;
+            min-width: 260px;
+        }
+        
+        .hero-image {
+            flex: 0.9;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .profile-img-wrapper {
+            width: 260px;
+            height: 260px;
+            border-radius: 38% 62% 53% 47% / 45% 43% 57% 55%;
+            background: linear-gradient(135deg, #3b82f6, #c084fc);
+            padding: 4px;
+            animation: morphing 10s infinite ease-in-out;
+            box-shadow: 0 30px 40px -20px rgba(0, 200, 255, 0.4);
+        }
+        
+        @keyframes morphing {
+            0% {
+                border-radius: 38% 62% 53% 47% / 45% 43% 57% 55%;
+            }
+            50% {
+                border-radius: 63% 37% 56% 44% / 48% 53% 47% 52%;
+            }
+            100% {
+                border-radius: 38% 62% 53% 47% / 45% 43% 57% 55%;
+            }
+        }
+        
+        .profile-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+            background: #0f1222;
+        }
+        
+        .hero-content h1 {
+            font-size: clamp(2.2rem, 7vw, 3.8rem);
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .highlight {
+            background: linear-gradient(125deg, #a5f3fc, #3b82f6, #c084fc);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmerText 5s infinite;
+        }
+        
+        @keyframes shimmerText {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 150% 50%;
+            }
+        }
+        
+        .college-badge-modern {
+            background: rgba(59, 130, 246, 0.18);
+            backdrop-filter: blur(12px);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 1rem 0 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            flex-wrap: wrap;
+        }
+        
+        .typed-text {
+            font-size: 1.3rem;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            padding-right: 1rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+        
+        .project-card,
+        .cert-card {
+            background: rgba(15, 20, 35, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            padding: 1.6rem;
+            transform: translateY(0);
+            height: 100%;
+        }
+        
+        .project-card:hover,
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+            background: rgba(25, 32, 55, 0.85);
+            box-shadow: 0 30px 40px -20px rgba(0, 160, 255, 0.3);
+        }
+        
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.12);
+            border-radius: 60px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 500;
+            transition: 0.2s;
+            border: 0.5px solid rgba(59, 130, 246, 0.3);
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+        
+        .skill-tag:hover {
+            background: #3b82f6;
+            transform: scale(1.02);
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: linear-gradient(120deg, #fff, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .info-dual {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2rem 0 2.5rem;
+        }
+        
+        .info-card {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 1.8rem;
+            padding: 1.5rem;
+            border-right: 2px solid #3b82f6;
+            transition: 0.2s;
+        }
+        
+        .info-card:last-child {
+            border-right: none;
+            border-left: 2px solid #a855f7;
+        }
+        
+        .contact-wrapper {
+            background: rgba(10, 12, 28, 0.7);
+            backdrop-filter: blur(16px);
+            border-radius: 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 2rem;
+            margin: 2rem 0 3rem;
+        }
+        
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .contact-info-panel {
+            flex: 1;
+            min-width: 220px;
+        }
+        
+        .contact-form-panel {
+            flex: 1.5;
+            min-width: 260px;
+        }
+        
+        .contact-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 0.7rem;
+            background: rgba(59, 130, 246, 0.08);
+            border-radius: 20px;
+            transition: 0.2s;
+            flex-wrap: wrap;
+        }
+        
+        .contact-detail-item i {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 30px;
+            font-size: 1.2rem;
+            color: #3b82f6;
+        }
+        
+        .form-group-modern {
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group-modern input,
+        .form-group-modern textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            background: #0a0c1a;
+            border: 1px solid #2d354f;
+            border-radius: 28px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        
+        .form-group-modern input:focus,
+        .form-group-modern textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .contact-btn {
+            width: 100%;
+            background: linear-gradient(105deg, #3b82f6, #8b5cf6);
+            border: none;
+            padding: 0.9rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .link-placeholder {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #7e9ef5;
+            font-weight: 500;
+            margin-top: 1rem;
+            text-decoration: none;
+            border-bottom: 1px dashed #3b82f6;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .email-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(105deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .email-link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px #3b82f6;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.8rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                justify-content: center;
+            }
+            .hero-content h1 {
+                text-align: center;
+            }
+            .hero-grid {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .typed-text {
+                text-align: left;
+                display: inline-block;
+            }
+            .college-badge-modern {
+                justify-content: center;
+                width: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .social-icons {
+                justify-content: center;
+            }
+            .info-card {
+                border-right: none;
+                border-bottom: 2px solid #3b82f6;
+            }
+            .info-card:last-child {
+                border-left: none;
+                border-top: 2px solid #a855f7;
+            }
+            .profile-img-wrapper {
+                width: 220px;
+                height: 220px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-img-wrapper {
+                width: 190px;
+                height: 190px;
+            }
+            .btn {
+                padding: 0.6rem 1.3rem;
+                font-size: 0.85rem;
+            }
+            .contact-wrapper {
+                padding: 1.3rem;
+            }
+            .typed-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">Ashish Kumar Rawat</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#projects">Work</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#contact">Connect</a>
+            </div>
+        </nav>
+
+        <section id="home" class="hero">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Building the <span class="highlight">Intelligent Future</span><br> with AI & Code</h1>
+                    <div class="college-badge-modern">
+                        <i class="fas fa-graduation-cap"></i> Chandigarh University (Uttar Pradesh) · B.Tech CSE (AI/ML)
+                    </div>
+                    <div class="typed-text" id="dynamicPhrase">⚡ AI/ML Engineer</div>
+                    <p style="margin: 1.2rem 0; color:#b9c7dd; max-width: 550px;">I'm Ashish Rawat — turning complex problems into elegant solutions. Specializing in Artificial Intelligence, Cybersecurity, and full-stack development.</p>
+                    <div class="social-icons" style="display: flex; gap: 1.2rem; flex-wrap: wrap;">
+                        <a href="https://github.com/coder-ashish-ops" target="_blank" rel="noopener noreferrer" style="color:#cbd5f0; font-size:1.5rem;"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/ashish-kumar-rawat/" target="_blank" rel="noopener noreferrer" style="color:#cbd5f0; font-size:1.5rem;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" style="color:#cbd5f0; font-size:1.5rem;"><i class="fab fa-x-twitter"></i></a>
+                        <a href="mailto:rawatashish5050@gmail.com" style="color:#cbd5f0; font-size:1.5rem;"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Hire Me</a>
+                        <a href="#projects" class="btn btn-outline"><i class="fas fa-code-branch"></i> Projects</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-img-wrapper">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.XExDmTPeXHZms-svgD9pAAHaI3?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ashish Rawat" onerror="this.src='https://placehold.co/500x500/1e1f2e/3b82f6?text=Ashish'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="info-dual">
+            <div class="info-card">
+                <i class="fas fa-bullseye" style="font-size: 2rem; color:#3b82f6;"></i>
+                <h3 style="margin: 1rem 0 0.5rem;">Career Objective</h3>
+                <p>To apply my technical knowledge, problem-solving abilities, and dedication to learning in challenging opportunities where I can contribute, grow professionally, and create innovative solutions using modern technologies.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-university" style="font-size: 2rem; color:#a855f7;"></i>
+                <h3 style="margin: 1rem 0 0.5rem;">Chandigarh University</h3>
+                <p>📍 Uttar Pradesh Campus · B.Tech Computer Science (AI & ML) · 2023–2027<br>CGPA: 8.9+ | Specialization in Deep Learning & Cyber Defense</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">📌 Core Expertise</h2>
+        <div class="skills-grid">
+            <span class="skill-tag">C/C++</span><span class="skill-tag">Python</span><span class="skill-tag">Data Structures & Algorithms</span>
+            <span class="skill-tag">Machine Learning</span><span class="skill-tag">Artificial Intelligence</span><span class="skill-tag">Cybersecurity</span>
+            <span class="skill-tag">HTML/CSS/JS</span><span class="skill-tag">Problem Solving</span><span class="skill-tag">Analytical Thinking</span>
+            <span class="skill-tag">Flask</span><span class="skill-tag">LangChain</span>
+        </div>
+
+        <section id="projects">
+            <h2 class="section-title"><i class="fas fa-rocket"></i> Featured Projects</h2>
+            <div class="cards-grid">
+                <div class="project-card">
+                    <i class="fas fa-robot fa-2x" style="color:#3b82f6;"></i>
+                    <h3 style="margin: 0.8rem 0 0.5rem;">Generative AI Chatbot</h3>
+                    <p>Fine-tuned LLM for domain-specific queries, built with LangChain & HuggingFace. Interactive UI.</p>
+                    <a href="#" class="link-placeholder project-link" data-name="Generative AI Chatbot"><i class="fas fa-link"></i> Live Preview →</a>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-shield-virus fa-2x" style="color:#8b5cf6;"></i>
+                    <h3 style="margin: 0.8rem 0 0.5rem;">Threat Intelligence Platform</h3>
+                    <p>Real-time network anomaly detection using ML (Random Forest). Scapy + Elastic stack.</p>
+                    <a href="#" class="link-placeholder project-link" data-name="Threat Intelligence Platform"><i class="fas fa-link"></i> Explore →</a>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-chart-simple fa-2x" style="color:#3b82f6;"></i>
+                    <h3 style="margin: 0.8rem 0 0.5rem;">Stock Market Forecasting</h3>
+                    <p>LSTM & GRU models with technical indicators. Deployed on Streamlit cloud.</p>
+                    <a href="#" class="link-placeholder project-link" data-name="Stock Market Forecasting"><i class="fas fa-link"></i> Case Study →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <h2 class="section-title"><i class="fas fa-award"></i> Certifications & Honors</h2>
+            <div class="cards-grid">
+                <div class="cert-card">
+                    <i class="fas fa-certificate" style="font-size:2rem; color:#3b82f6;"></i>
+                    <h3>Microsoft Certified: Azure AI Fundamentals (AI-900)</h3>
+                    <p>Gained foundational knowledge of AI, ML, and Azure AI services.</p>
+                    <a href="https://www.credly.com/badges/be9cbdd2-96a1-46a7-859c-cfc6ca3aebb7" target="_blank" rel="noopener noreferrer" class="link-placeholder"><i class="fas fa-external-link-alt"></i> Verify</a>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-code" style="font-size:2rem; color:#8b5cf6;"></i>
+                    <h3>Microsoft Certified: Azure Fundamentals (AZ-900)</h3>
+                    <p>Learned the fundamentals of cloud computing and Microsoft Azure services.</p>
+                    <a href="https://www.credly.com/earner/earned/badge/e45c88e9-b878-4199-84de-6fa3ccefd9fa" target="_blank" rel="noopener noreferrer" class="link-placeholder"><i class="fas fa-external-link-alt"></i> Show Credential</a>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-laptop-code" style="font-size:2rem; color:#3b82f6;"></i>
+                    <h3>Oracle OCI</h3>
+                    <p>Learned the fundamentals of Oracle Cloud Infrastructure and cloud services.</p>
+                    <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=CCFE925E5BB1D617DA9868E17BEB7496C3A605722BF93720349EDD363CAB8FD8" target="_blank" rel="noopener noreferrer" class="link-placeholder"><i class="fas fa-external-link-alt"></i> Certificate Link</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIMPLE CONTACT SECTION - Opens Email Client (100% WORKING) -->
+        <section id="contact">
+            <h2 class="section-title">📬 Get In Touch</h2>
+            <div class="contact-wrapper">
+                <div class="contact-grid">
+                    <div class="contact-info-panel">
+                        <div class="contact-detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <div><strong>Email</strong><br>rawatashish5050@gmail.com</div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div><strong>Phone</strong><br>+91 6394632104</div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div><strong>Location</strong><br>Chandigarh University, Uttar Pradesh</div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fas fa-clock"></i>
+                            <div><strong>Response Time</strong><br>Within 24 hours</div>
+                        </div>
+                    </div>
+                    <div class="contact-form-panel">
+                        <!-- Simple mailto link - THIS WILL WORK 100% -->
+                        <div style="text-align: center;">
+                            <p style="margin-bottom: 1.5rem; color: #94a3b8;">Fill the form below and click the button to send me an email</p>
+                            <div class="form-group-modern">
+                                <input type="text" id="emailName" placeholder="Your full name" style="margin-bottom: 1rem;">
+                            </div>
+                            <div class="form-group-modern">
+                                <input type="email" id="emailAddress" placeholder="Your email address" style="margin-bottom: 1rem;">
+                            </div>
+                            <div class="form-group-modern">
+                                <textarea id="emailMessage" rows="4" placeholder="Your message..."></textarea>
+                            </div>
+                            <button class="email-link-btn" id="openEmailBtn">
+                                <i class="fas fa-envelope"></i> Open Email Client →
+                            </button>
+                            <p style="margin-top: 1rem; font-size: 0.8rem; color: #6ee7b7;">
+                                <i class="fas fa-info-circle"></i> Clicking will open your email app.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 Ashish Rawat · AI/ML Engineer</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">🚀 Open for internships & research collaborations</p>
+        </footer>
+    </div>
+
+    <script>
+        // Typed animation
+        const phrasesModern = ["🤖 AI/ML Engineer", "⚡ Front-End Developer", "🎓 Chandigarh University"];
+        let idxM = 0;
+        const typedSpan = document.getElementById('dynamicPhrase');
+        if (typedSpan) {
+            setInterval(() => {
+                idxM = (idxM + 1) % phrasesModern.length;
+                typedSpan.style.opacity = '0';
+                setTimeout(() => {
+                    typedSpan.innerHTML = phrasesModern[idxM];
+                    typedSpan.style.opacity = '1';
+                }, 180);
+            }, 2800);
+        }
+
+        // SIMPLE SOLUTION: Opens email client with pre-filled message
+        const openEmailBtn = document.getElementById('openEmailBtn');
+
+        if (openEmailBtn) {
+            openEmailBtn.addEventListener('click', function() {
+                const name = document.getElementById('emailName').value.trim();
+                const email = document.getElementById('emailAddress').value.trim();
+                const message = document.getElementById('emailMessage').value.trim();
+
+                if (!name) {
+                    alert("⚠️ Please enter your name");
+                    document.getElementById('emailName').focus();
+                    return;
+                }
+                if (!email) {
+                    alert("⚠️ Please enter your email address");
+                    document.getElementById('emailAddress').focus();
+                    return;
+                }
+                if (!email.includes('@') || !email.includes('.')) {
+                    alert("⚠️ Please enter a valid email address (e.g., name@example.com)");
+                    document.getElementById('emailAddress').focus();
+                    return;
+                }
+                if (!message) {
+                    alert("⚠️ Please enter your message");
+                    document.getElementById('emailMessage').focus();
+                    return;
+                }
+
+                // Create email subject and body
+                const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+                const body = encodeURIComponent(
+                    `Name: ${name}\n` +
+                    `Email: ${email}\n\n` +
+                    `Message:\n${message}\n\n` +
+                    `---\nSent from Ashish Rawat's Portfolio\n`
+                );
+
+                // Open default email client
+                window.location.href = `mailto:rawatashish5050@gmail.com?subject=${subject}&body=${body}`;
+
+                // Show confirmation
+                alert("✅ Your email client will open now.\n\nClick Send to complete the message.");
+            });
+        }
+
+        // Project links
+        document.querySelectorAll('.project-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    alert(`✨ "${link.dataset.name}"\n\nAdd your live project link here.`);
+                }
+            });
+        });
+
+        // Active nav highlight
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollPos = window.scrollY + 100;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.style.color = '#cbd5f0';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = '#00f0ff';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
